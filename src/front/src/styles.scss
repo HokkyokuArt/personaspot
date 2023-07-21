@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #222;
+    color: #FFF;
+}
+
+// scrollbar
+/* width */
+::-webkit-scrollbar {
+    display: block !important;
+    width: 5px;
+    height: 5px;
+}
+
+/* track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background: #965ace;
+}
+
+.mdc-snackbar__surface {
+    background-color: rgba($color: #FF0000, $alpha: .5) !important;
+
+    & * {
+        color: #fff !important;
+        font-weight: bold !important;
+    }
+}
+
+.mat-column-actions {
+    width: 150px;
+    min-width: 150px;
+}

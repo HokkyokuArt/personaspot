@@ -18,6 +18,8 @@ public class CustomCorsConfiguration {
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("DELETE");
 
+        config.addAllowedHeader("*");
+
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
