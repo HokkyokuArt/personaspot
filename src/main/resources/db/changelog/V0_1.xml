@@ -1,0 +1,149 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="insertPessoas" author="artico">
+
+        <insert tableName="pessoa">
+            <column name="uuid" value="7d6bf93e-aaef-43b9-8914-7c276bd4470d"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="João Santos"/>
+            <column name="cpf" value="31043245024"/>
+            <column name="data_nascimento" value="1995-05-15"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="8b079ac8-eefb-4819-a53c-2466d15f1c40"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Maria Oliveira"/>
+            <column name="cpf" value="04961661069"/>
+            <column name="data_nascimento" value="1988-11-30"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="1ca23ab3-4f56-4c7a-b4eb-0c8bb4c98b16"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Pedro Souza"/>
+            <column name="cpf" value="45791574098"/>
+            <column name="data_nascimento" value="1973-06-25"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="91cdadd4-2ebf-46f2-aa97-05a12404e678"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Ana Pereira"/>
+            <column name="cpf" value="69978233037"/>
+            <column name="data_nascimento" value="1990-09-10"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="5be9038b-e11b-4a50-8d53-21ee80e1c9e1"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Lucas Santos"/>
+            <column name="cpf" value="53007896006"/>
+            <column name="data_nascimento" value="1985-03-12"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="0ef1005c-31c7-4bfc-b1e6-45121d66ce71"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Isabella Lima"/>
+            <column name="cpf" value="15892543090"/>
+            <column name="data_nascimento" value="1998-12-20"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="8f6ecda6-21a5-4a16-bdb3-b2b5bc9c2a9b"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Gustavo Castro"/>
+            <column name="cpf" value="00130320041"/>
+            <column name="data_nascimento" value="1982-07-05"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="502f2619-010b-4f80-9da5-5a52c157e4cd"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Larissa Almeida"/>
+            <column name="cpf" value="64547290000"/>
+            <column name="data_nascimento" value="1999-04-18"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="64c25b63-0131-4a2a-b4aa-87db12908c3c"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Rafaela Barbosa"/>
+            <column name="cpf" value="20668131019"/>
+            <column name="data_nascimento" value="1993-08-28"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="0f0bf274-8b81-4c47-a0c0-5617ab78463b"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Matheus Rodrigues"/>
+            <column name="cpf" value="83638755058"/>
+            <column name="data_nascimento" value="1987-02-11"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="a00d0d91-dde9-48f6-a688-1f4ae3d3e1b5"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Gabriela Silva"/>
+            <column name="cpf" value="54314028000"/>
+            <column name="data_nascimento" value="1980-10-16"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="8d567392-2d3c-45ea-b39a-142012f3ce96"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Eduardo Costa"/>
+            <column name="cpf" value="46949106025"/>
+            <column name="data_nascimento" value="1976-12-08"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="20cf5473-4e14-401d-95f6-4ce6588492b5"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Beatriz Ferreira"/>
+            <column name="cpf" value="86258757013"/>
+            <column name="data_nascimento" value="1997-11-22"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="da33c0d6-c2ca-4825-b3da-5eb78f448ab1"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Henrique Oliveira"/>
+            <column name="cpf" value="74011133004"/>
+            <column name="data_nascimento" value="1984-09-07"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="6c62d62f-7716-4efc-8c5b-5f40ac5f4a4d"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Laura Souza"/>
+            <column name="cpf" value="04485592022"/>
+            <column name="data_nascimento" value="1994-03-03"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="47d769b1-1f71-4d6e-a800-d1a0ce6b5c23"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Guilherme Martins"/>
+            <column name="cpf" value="73963265063"/>
+            <column name="data_nascimento" value="1978-06-13"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="a06f711f-72d8-4f6a-a1f0-e7edcc4a0805"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Felipe Ferreira"/>
+            <column name="cpf" value="26421779010"/>
+            <column name="data_nascimento" value="1996-09-09"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="c8c4e63c-c4f8-4f3e-8d04-9982b34dd7dd"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Carolina Martins"/>
+            <column name="cpf" value="43889467079"/>
+            <column name="data_nascimento" value="2000-08-17"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="bb8e46de-6e9b-4c2e-af19-64d2f748efda"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Daniel Rodrigues"/>
+            <column name="cpf" value="11324032018"/>
+            <column name="data_nascimento" value="1981-04-04"/>
+        </insert>
+        <insert tableName="pessoa">
+            <column name="uuid" value="64c4dfb9-0ed9-4da5-a66c-0979a5c71710"/>
+            <column name="version" value="0"/>
+            <column name="nome" value="Vitória Lima"/>
+            <column name="cpf" value="68285528053"/>
+            <column name="data_nascimento" value="1995-03-28"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
