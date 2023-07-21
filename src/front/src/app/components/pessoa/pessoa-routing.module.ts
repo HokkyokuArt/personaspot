@@ -5,7 +5,9 @@ import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   { path: '', component: ListComponent },
-  { path: 'new', component: DetailComponent }
+  { path: 'new', component: DetailComponent },
+  { path: 'edit/:uuid', component: DetailComponent },
+  { path: 'view/:uuid', component: DetailComponent }
 ];
 
 @NgModule({

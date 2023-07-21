@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { PessoaService } from '../pessoa.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { LayoutService } from '../../layout/layout.service';
 
@@ -18,12 +18,16 @@ export class DetailComponent implements OnInit {
   form!: FormGroup;
 
   submitted = false;
+  isNew = false;
+  isEdit = false;
+  uuid?= '';
 
   config = [
     { label: 'Nome', property: 'nome' },
     { label: 'Telefone', property: 'telefone' },
     { label: 'Email', property: 'email' }
   ];
+
 
   get listPorperties() {
     const list = this.config.map(s => s.property);
@@ -37,15 +41,44 @@ export class DetailComponent implements OnInit {
     protected service: PessoaService,
     protected router: Router,
     protected layoutService: LayoutService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    const routePath = this.route.snapshot.url[0].path;
+    this.uuid = this.route.snapshot.url[1]?.path;
+
+    if (routePath === 'view') {
+      this.isEdit = false;
+      this.isNew = false;
+    }
+
+    if (routePath === 'edit') {
+      this.isEdit = true;
+      this.isNew = false;
+    }
+
+    if (routePath === 'new') {
+      this.isEdit = true;
+      this.isNew = true;
+    }
+
     this.form = this.fb.group({
-      nome: this.fb.control('', Validators.required),
-      cpf: this.fb.control('', Validators.required),
-      dataNascimento: this.fb.control('', Validators.required),
-      contatos: this.fb.control([])
+      uuid: this.fb.control(''),
+      version: this.fb.control(0),
+      nome: this.fb.control({ value: '', disabled: !this.isEdit && !this.isNew }, Validators.required),
+      cpf: this.fb.control({ value: '', disabled: !this.isEdit && !this.isNew }, Validators.required),
+      dataNascimento: this.fb.control({ value: '', disabled: !this.isEdit && !this.isNew }, Validators.required),
+      contatos: this.fb.control({ value: [], disabled: !this.isEdit && !this.isNew })
     });
+
+    if (!this.isNew) {
+      this.service.getOne(this.uuid).subscribe({
+        next: v => {
+          this.form.patchValue(v);
+        }
+      });
+    }
   }
 
   openDialog() {
@@ -82,6 +115,31 @@ export class DetailComponent implements OnInit {
           this.layoutService.error('Erro');
         },
       });
+  }
+
+  onUpdate() {
+    this.disabled = true;
+    const dn = new Date(this.form.get('dataNascimento')?.value).toISOString().split('T')[0];
+    this.form.get('dataNascimento')?.setValue(dn);
+
+    this.service.update(this.uuid!, this.form.getRawValue())
+      .pipe(finalize(() => this.disabled = false))
+      .subscribe({
+        next: v => {
+          this.router.navigate(['/pessoa']);
+        },
+        error: er => {
+          this.layoutService.error('Erro');
+        },
+      });
+  }
+
+  onClick() {
+    if (this.isNew) {
+      this.onSave();
+    } else {
+      this.onUpdate();
+    }
   }
 
 }
@@ -124,6 +182,8 @@ export class DialogAnimationsExampleDialog {
   form!: FormGroup;
   ngOnInit(): void {
     this.form = this.fb.group({
+      uuid: this.fb.control(''),
+      version: this.fb.control(0),
       nome: this.fb.control('', Validators.required),
       telefone: this.fb.control('', Validators.required),
       email: this.fb.control('', Validators.required)

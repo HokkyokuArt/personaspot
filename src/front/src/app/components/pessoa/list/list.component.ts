@@ -48,10 +48,17 @@ export class ListComponent extends ListSuperComponent<IPessoa, PessoaService>  {
     this.router.navigate(['/pessoa/new']);
   }
 
+  onClickEdit(uuid: string) {
+    this.router.navigate(['/pessoa/edit/' + uuid]);
+  }
+
+  onClickView(uuid: string) {
+    this.router.navigate(['/pessoa/view/' + uuid]);
+  }
+
   public getOneByCPF(cpf: string): void {
     this.service.getOneByCPF(cpf).subscribe({
       next: v => {
-        // this.one = v;
         if (this.list)
           this.list.content = Array.of(v);
       },

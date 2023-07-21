@@ -37,7 +37,7 @@
         </div>
     </form>
 
-    <button mat-fab extended color="primary" (click)="openDialog()" class="mb-3">
+    <button *ngIf="this.isEdit" mat-fab extended color="primary" (click)="openDialog()" class="mb-3">
         <mat-icon>add</mat-icon>
         Adicionar contato
     </button>
@@ -72,8 +72,8 @@
         <a mat-button routerLink="/pessoa">Cancelar</a>
     </div>
 
-    <div class=" m-3" style="position:fixed; bottom: 0; right: 0;">
-        <button [disabled]="!form.valid || disabled" mat-fab color="accent" (click)="onSave()">
+    <div *ngIf="isEdit" class=" m-3" style="position:fixed; bottom: 0; right: 0;">
+        <button [disabled]="!form.valid || disabled" mat-fab color="accent" (click)="onClick()">
             <mat-icon>check</mat-icon>
         </button>
     </div>
