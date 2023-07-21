@@ -8,8 +8,9 @@ import org.springframework.context.annotation.*;
 
 @Configuration
 @OpenAPIDefinition(servers = {
-        @Server(url = "http://localhost:8080/", description = "Dev Server"),}
-)
+        @Server(url = "http://localhost:8080/", description = "Localhost Server"),
+        @Server(url = "https://personaspot-production.up.railway.app/", description = "Prod Server"),
+})
 public class SwaggerConfiguration {
     @Bean
     public OpenAPI customOpenAPI() {
